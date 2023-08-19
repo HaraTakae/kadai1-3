@@ -1,18 +1,1 @@
-<body>
-  <main>
-   <%= form_with model: @Book do |f| %>
-    <h2>User info</h2>
-    <!-- 画像 -->
-    <%= f.file_field :image, accept: "image/*" %>
-   <table class="table"> 
-    <tr>
-     <th>name</th>
-     <% if user_signed_in? %>
-     <th><%= current_user.username %></th>
-    </tr>
-    <!-- 自己紹介文 -->
-     <th>= @user.introduction</th>
-   </table>
-    
-  </main>
-</body>
+
