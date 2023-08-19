@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :books, dependent: :destroy
+         
+  validates :introduction, presence: false, length: { maximum: 50 } # 自己紹介の最高文字数は50文字
 end
