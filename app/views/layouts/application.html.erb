@@ -13,11 +13,33 @@
 
   <body>
     <header>
+      <span>Bookers</span>
      <% if user_signed_in? %>
+      <li>
+        <%= link_to "Bookers", root_path %>
+      </li>
+      <li>
+        <%= link_to "Home", books_path %>
+      </li>
+      <li>
+        <%= link_to "Users", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Books", edit_user_registration_path %>
+      </li>
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
      <% else %>
+      <li>
+        <%= link_to "Bookers", root_path %>
+      </li>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li>
+        <%= link_to "About", about_path %>
+      </li>
       <li>
         <%= link_to "Sign Up", new_user_registration_path %>
       </li>
