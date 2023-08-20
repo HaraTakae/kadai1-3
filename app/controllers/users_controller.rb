@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
+  
+  def index
+  end
+  
   def show
     @user = User.find(params[:id])
-    @home = @user.home
+    @book = Book.new
   end
 
   def edit
   end
+  
+  def 
   
   # introductionを入れたい
   def user_params_update
