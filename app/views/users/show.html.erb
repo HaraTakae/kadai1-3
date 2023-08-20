@@ -1,3 +1,7 @@
+<div>
+ <%= flash[:notice] %>
+</div>
+
 <body>
   <main>
     <h2>User info</h2>
@@ -14,12 +18,13 @@
      <th><%= @user.introduction %></th>
     </tr>
    </table>
-   
+
    <div>
-    <i class="fa-solid fa-user-gear"></i>
-    <%= link_to "/users/:id/edit/#{@user.id}" %>
+    <% if @user == current_user %>
+    <a class="fa-solid fa-user-gear"href="/users/:id/edit"></a>
+    <% end %>
    </div>
-   
+
    <h2>New book</h2>
    <%= form_with model: User.new do |f| %>
     <p>Title</p>
@@ -28,6 +33,14 @@
     <%= f.text_area :opinion %>
     <p><%= f.submit 'Create Book' %></p>
    <% end %>
+
+   <h2>Books</h2>
+    <tr>
+     <th>Title</th>
+     <th>Opinion</th>
+     <th colspan="3"></th>
+
+    </tr>
 
   </main>
 </body>

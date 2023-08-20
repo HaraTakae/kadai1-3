@@ -19,34 +19,41 @@
         <%= link_to "Bookers", root_path %>
       </li>
       <div>
-        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-house-chimney"></i>
         <%= link_to "Home", user_session_path %>
       </div>
-      <li>
+      <div>
+        <i class="fa-solid fa-users"></i>
         <%= link_to "Users", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Books", edit_user_registration_path %>
-      </li>
-      <li>
+      </div>
+      <div>
+        <i class="fa-solid fa-book-open"></i>
+        <%= link_to "Books", books_path %>
+      </div>
+      <div>
+        <i class="fa-solid fa-right-from-bracket"></i>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
+      </div>
      <% else %>
       <li>
         <%= link_to "Bookers", root_path %>
       </li>
-      <li>
+      <div>
+        <i class="fa-solid fa-house-chimney"></i>
         <%= link_to "Home", root_path %>
-      </li>
-      <li>
+      </div>
+      <div>
+        <i class="fa-solid fa-link"></i>
         <%= link_to "About", about_path %>
-      </li>
-      <li>
+      </div>
+      <div>
+        <i class="fa-solid fa-user-plus"></i>
         <%= link_to "Sign Up", new_user_registration_path %>
-      </li>
-      <li>
+      </div>
+      <div>
+        <i class="fa-solid fa-right-to-bracket"></i>
         <%= link_to "Log in", new_user_session_path %>
-      </li>
+      </div>
      <% end %>
     </header>
     <%= yield %>

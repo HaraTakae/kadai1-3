@@ -1,20 +1,34 @@
 class UsersController < ApplicationController
-  
+
+   
   def index
   end
-  
+
   def show
     @user = User.find(params[:id])
     @book = Book.new
   end
 
   def edit
+    @user = User.find(params[:id])
   end
   
-  def 
-  
+  def update
+    @user =  User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully."
+    redirect_to user_path(@user.id)
+    end
+  end
+
   # introductionを入れたい
   def user_params_update
     params.require(:user).permit(:image, :name, :introduction)
+  end
+  
+  private
+  
+  def user_params
+    params.require(:user).permit(:name, :image, :introduction)
   end
 end
