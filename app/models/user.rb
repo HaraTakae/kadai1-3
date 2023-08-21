@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          has_one_attached :profile_image
          has_many :books, dependent: :destroy
-         
+  
+  validates :name, presence: true
+  
   validates :introduction, presence: false, length: { maximum: 50 } # 自己紹介の最高文字数は50文字
   def get_profile_image(width, height)
   unless profile_image.attached?

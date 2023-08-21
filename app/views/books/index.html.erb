@@ -1,9 +1,9 @@
 <body>
- <main>
+  <main>
     <h2>User info</h2>
     <!-- 画像 -->
-   <%= image_tag @user.get_profile_image(100,100) %>
-  <table class="table">
+    <%= image_tag @user.get_profile_image(100,100) %>
+   <table class="table">
     <tr>
      <th>name</th>
      <th><%= @user.name %></th>
@@ -13,15 +13,16 @@
      <th>introduction</th>
      <th><%= @user.introduction %></th>
     </tr>
-  </table>
-   
-  <div>
-    <i class="fa-solid fa-user-gear"></i>
-    <%= link_to "/users/:id/edit/#{@user.id}" %>
-  </div>
-   
+   </table>
+
+   <div>
+    <% if @user == current_user %>
+    <a class="fa-solid fa-user-gear"href="/users/:id/edit"></a>
+    <% end %>
+   </div>
+
    <h2>New book</h2>
-   <%= form_with model: User.new do |f| %>
+   <%= form_with model: @user do |f| %>
     <p>Title</p>
     <%= f.text_field :title %>
     <p>Opinion</p>
@@ -29,5 +30,12 @@
     <p><%= f.submit 'Create Book' %></p>
    <% end %>
 
- </main>
+   <h2>Books</h2>
+    <tr>
+     <th>Title</th>
+     <th>Opinion</th>
+     <th colspan="3"></th>
+    </tr>
+
+  </main>
 </body>
