@@ -1,15 +1,15 @@
-<h2>User info</h2>
+ <h2>User info</h2>
     <!-- 画像 -->
-    <%= image_tag @user.get_profile_image(100,100) %>
+    <%= image_tag current_user.get_profile_image(100,100) %>
    <table class="table">
     <tr>
      <th>name</th>
-     <th><%= @user.name %></th>
+     <th><%= current_user.name %></th>
     </tr>
     <!-- 自己紹介文 -->
     <tr>
      <th>introduction</th>
-     <th><%= @user.introduction %></th>
+     <th><%= current_user.introduction %></th>
     </tr>
    </table>
 
@@ -18,11 +18,15 @@
      <%= link_to edit_user_path(current_user) do %>
       <i class="fa-solid fa-user-gear"></i>
      <% end %>
+    <% else %>
+     <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-user-gear"></i>
+     <% end %>
     <% end %>
    </div>
 
    <h2>New book</h2>
-   <%= form_with model: @user do |f| %>
+   <%= form_with model: @user,url: '/books/:id', method: :post do |f| %>
     <p>Title</p>
     <%= f.text_field :title %>
     <p>Opinion</p>
@@ -32,13 +36,11 @@
 
    <h2>Books</h2>
    <table>
-    <% @book.each do |book| %>
+    <thead>
      <tr>
       <th>Title</th>
       <th>Opinion</th>
       <th colspan="3"></th>
-       <span><%= book.title %></span>
-       <span><%= book.opinion %></span>
      </tr>
-    <% end %>
+    </thead>
    </table>
