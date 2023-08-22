@@ -1,3 +1,7 @@
+  <div>
+   <%= flash[:notice] %>
+  </div>
+
   <h2>User info</h2>
     <!-- 画像 -->
     <%= image_tag current_user.get_profile_image(100,100) %>
@@ -38,12 +42,12 @@
   <table>
    <tbody>
      <tr>
-      <th><%= image_tag current_user.get_profile_image(100,100) %><br>
+      <th><%= image_tag current_user.get_profile_image(100,100) %></th>
       <th><%= @users.name %></th>
       <th><%= @book.title %></th>
       <th><%= @book.opinion %></th>
+      <%= link_to "Edit", edit_book_path %>
+      <%= link_to "Destroy", book_path(@book.id), method: :delete %>
      </tr>
-    <%= link_to "Edit", edit_book_path %>
-    <%= link_to "Destroy", book_path(@book.id), method: :delete %>
    </tbody>
   </table>
