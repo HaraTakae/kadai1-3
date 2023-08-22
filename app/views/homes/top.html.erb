@@ -10,13 +10,14 @@
       <strong>Bookers</strong>,</p>
       <p>you can share and exchange your opinions , inpressions , and emotions</p>
       <p>about various books!</p>
+
       <% if user_signed_in? %>
       <% else %>
-      <li>
+       <li>
         <%= link_to "Log in", new_user_session_path %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%= link_to "Sign Up", new_user_registration_path %>
-      </li>
+       </li>
       <% end %>
 </main>

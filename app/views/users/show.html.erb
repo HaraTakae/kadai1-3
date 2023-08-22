@@ -47,5 +47,11 @@
      <th colspan="3"></th>
     </tr>
    </table>
-   
-   <tbody></tbody>
+
+   <tbody>
+    <% @books.each do |book| %>
+     <th><%= image_tag current_user.get_profile_image(100,100) %></th>
+  　　<th><%= book.title %></th>
+     <th><%= book.opinion %></th><br>
+    <% end %>
+   </tbody>

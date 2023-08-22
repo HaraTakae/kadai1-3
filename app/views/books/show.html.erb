@@ -46,8 +46,8 @@
       <th><%= @users.name %></th>
       <th><%= @book.title %></th>
       <th><%= @book.opinion %></th>
-      <%= link_to "Edit", edit_book_path %>
-      <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+      <%= link_to "Edit", edit_book_path(@book.id) %>
+      <%= link_to "Destroy", book_path(@book.id), method: :delete, "date-confirm" => "本当に削除しますか？" %>
      </tr>
    </tbody>
   </table>
