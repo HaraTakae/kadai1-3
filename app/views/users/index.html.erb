@@ -2,6 +2,9 @@
  <%= flash[:notice] %>
 </div>
 
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+   <div class="col-md-3">
     <h2>User info</h2>
     <!-- 画像 -->
     <%= image_tag current_user.get_profile_image(100,100) %>
@@ -30,29 +33,32 @@
    </div>
 
    <h2>New book</h2>
-   <%= form_with model: @book do |f| %>
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <p>Opinion</p>
-    <%= f.text_area :opinion %>
-    <p><%= f.submit 'Create Book' %></p>
-   <% end %>
+    <%= form_with model: @book do |f| %>
+     <p>Title</p>
+     <%= f.text_field :title %>
+     <p>Opinion</p>
+     <%= f.text_area :opinion %>
+     <p><%= f.submit 'Create Book' %></p>
+    <% end %>
+   </div>
 
-   <h2>Users</h2>
+   <div class="col-md-8 offset-md-1">
    <table>
-    <thead>
-     <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-     </tr>
-    </thead>
+    <h2>Users</h2>
+      <tr>
+       <th>image</th>
+       <th>name</th>
+       <th colspan="3"></th>
+      </tr>
+   </table>
 
     <tbody>
      <% @users.each do |user| %>
-      <tr><%= image_tag user.get_profile_image(100,100) %></tr><br>
+      <tr><%= image_tag user.get_profile_image(100,100) %></tr>
       <tr><%= user.name %></tr>
       <tr><%= link_to "show", user_path(user.id) %></tr><br>
      <% end %>
     </tbody>
-   </table>
+   </div>
+  </div>
+ </div>

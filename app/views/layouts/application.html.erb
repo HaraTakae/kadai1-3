@@ -8,55 +8,76 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/e576961936.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
  </head>
 
-  </body>
-      <li>
-        <%= link_to "Bookers", root_path %>
-      </li>
+<body>
+ <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Bookers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-     <% if user_signed_in? %>
-      </div>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item active">
         <i class="fa-solid fa-house-chimney"></i>
         <%= link_to "Home", user_session_path %>
-      </div>
-      <div>
+      </li>
+      <li class="nav-item">
         <i class="fa-solid fa-users"></i>
         <%= link_to "Users", users_path %>
-      </div>
-      <div>
+      </li>
+      <li class="nav-item dropdown">
         <i class="fa-solid fa-book-open"></i>
         <%= link_to "Books", books_path %>
-      </div>
-      <div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
         <i class="fa-solid fa-right-from-bracket"></i>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </div>
-     <% else %>
-      <div>
+      </li>
+      <% else %>
+      <li class="nav-item active">
         <i class="fa-solid fa-house-chimney"></i>
         <%= link_to "Home", root_path %>
-      </div>
-      <div>
+      </li>
+      <li class="nav-item">
         <i class="fa-solid fa-link"></i>
         <%= link_to "About", about_path %>
-      </div>
-      <div>
+      </li>
+      <li class="nav-item dropdown">
         <i class="fa-solid fa-user-plus"></i>
         <%= link_to "Sign Up", new_user_registration_path %>
-      </div>
-      <div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
         <i class="fa-solid fa-right-to-bracket"></i>
         <%= link_to "Log in", new_user_session_path %>
-      </div>
-     <% end %>
-    </header>
-    <%= yield %>
+      </li>
+      <% end %>
+    </ul>
+   </div>
+  </nav>
+ </header>
 
-    <footer>
-      <p>CopyRight Infratop.inc</p>
-    </footer>
-  </body>
+ <main class="container"><%= yield %></main>
+
+ <footer class="container">
+   <p>CopyRight Infratop.inc</p>
+ </footer>
+</body>
 </html>
