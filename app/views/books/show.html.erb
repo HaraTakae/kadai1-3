@@ -43,12 +43,12 @@
    <tbody>
      <tr>
       <th><%= image_tag current_user.get_profile_image(100,100) %></th>
-      <th><%= @users.name %></th>
-      <th><%= @book.title %></th>
+      <th><%= link_to @users.name, user_path(@user.id) %></th>
+      <th><%= link_to @book.title, book_path %></th>
       <th><%= @book.opinion %></th>
       <%= link_to "Edit", edit_book_path(@book.id) %>
       <% if @book.user == current_user %>
-       <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+       <%= link_to "Destroy", book_path(@book.id), method: :delete, date: {comfirm: "本当に削除しますか？"} %>
       <% end %>
      </tr>
    </tbody>
