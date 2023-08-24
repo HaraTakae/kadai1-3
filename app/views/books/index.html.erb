@@ -42,7 +42,7 @@
        <p>Title</p>
        <%= f.text_field :title %>
        <p>Opinion</p>
-       <%= f.text_area :opinion %>
+       <%= f.text_area :body %>
        <p><%= f.submit 'Create Book' %></p>
       <% end %>
    </div>
@@ -59,9 +59,11 @@
 
       <tbody>
        <% @books.each do |book| %>
+        <%= link_to user_path(book.id) do %>
         <tr><%= image_tag book.user.get_profile_image(100,100) %></tr>
+        <% end %>
         <tr><%= link_to book.title, book_path(book.id) %></tr>
-        <tr><%= book.opinion %></tr><br>
+        <tr><%= book.body %></tr><br>
        <% end %>
       </tbody>
      </table>

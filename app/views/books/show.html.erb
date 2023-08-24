@@ -37,7 +37,7 @@
      <p>Title</p>
      <%= f.text_field :title %>
      <p>Opinion</p>
-     <%= f.text_area :opinion %>
+     <%= f.text_area :body %>
      <p><%= f.submit 'Create Book' %></p>
     <% end %>
    </div>
@@ -50,7 +50,7 @@
       <th><%= image_tag current_user.get_profile_image(100,100) %></th><br>
       <th><%= link_to @users.name, user_path(@user.id) %></th>
       <th><%= link_to @book.title, book_path %></th>
-      <th><%= @book.opinion %></th>
+      <th><%= @book.body %></th>
       <% if @book.user == current_user %>
       <%= link_to "Edit", edit_book_path(@book.id) %>
        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
